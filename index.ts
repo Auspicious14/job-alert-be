@@ -2,6 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import JobRoute from "./routes/jobs";
+import notificationRoute from "./routes/notification";
 
 export const appRoute = express();
 const allowedOrigins = process.env.CLIENT_URL
@@ -39,3 +40,4 @@ appRoute.get("/", (req, res) => {
 });
 
 appRoute.use(JobRoute);
+appRoute.use(notificationRoute);
