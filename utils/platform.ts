@@ -3,11 +3,12 @@ export const platforms = [
     name: "HotNigerianJobs",
     urlTemplate: "https://www.hotnigerianjobs.com/alljobs/${i}",
     selectors: {
+      title: ".jobheader",
+      description: ".mycase4",
       jobItem: ".job-item",
-      title: ".job-title a",
       company: ".company",
       location: ".location",
-      link: ".job-title a",
+      link: ".jobheader h1 a",
     },
   },
   {

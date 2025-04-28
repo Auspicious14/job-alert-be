@@ -1,9 +1,10 @@
 import { Router } from "express";
-import { createJob, getJobs, scrapeJobs } from "../controllers/jobs";
+import { createJob, getJobs, updateJob, deleteJob } from "../controllers/jobs";
 const jobRouter = Router();
 
-jobRouter.get("/jobs/scrape", scrapeJobs);
 jobRouter.post("/jobs", createJob);
 jobRouter.get("/jobs", getJobs);
+jobRouter.put("/jobs/:id", updateJob);
+jobRouter.delete("/jobs/:id", deleteJob);
 
 export default jobRouter;
