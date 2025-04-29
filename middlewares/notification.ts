@@ -5,14 +5,11 @@ import { collections } from "../db";
 dotenv.config();
 const vapidPrivateKey = process.env.VAPID_PRIVATE_KEY || "";
 const vapidPublicKey = process.env.VAPID_PUBLIC_KEY || "";
+const mailAddress = process.env.MAILTO_ADDRESS || "";
 
+webPush.setVapidDetails(mailAddress, vapidPublicKey, vapidPrivateKey);
 export const notifySubscribers = async (payload: string) => {
   const subscriptions = await collections.notification.find({}).exec();
-  webPush.setVapidDetails(
-    "mailto:your@domain.com",
-    vapidPublicKey,
-    vapidPrivateKey
-  );
 
   subscriptions.forEach((subscription) => {
     webPush
